@@ -15,7 +15,8 @@ app.use("/api/post", postRouter);
 app.use("/posts", postRouter);
 
 //connection to database
-mongoose.connect(process.env.DB_CONNECTION, {
+const port = process.env.DB_CONNECTION || 3000;
+mongoose.connect(port, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -26,6 +27,6 @@ conn.on("open", () => {
 });
 
 //how we start listening to the server
-app.listen(process.env.PORT || -1, () => {
+app.listen(port, () => {
   console.log("Server started");
 });
