@@ -15,6 +15,7 @@ app.use("/api/post", postRouter);
 app.use("/posts", postRouter);
 
 //connection to database
+// const port = process.env.DB_CONNECTION || 3000;
 mongoose.connect(process.env.DB_CONNECTION, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
